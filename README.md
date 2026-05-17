@@ -13,6 +13,7 @@ căutare produse
 filtrare și sortare
 generare raport magazin
 export produse în format CSV
+
 Tehnologii utilizate
 Python 3
 Flask
@@ -87,6 +88,7 @@ python aplicatie.py
 
 Aplicația va fi disponibilă la adresa:
 
+http://127.0.0.1:5000/
 
 Baza de date
 
@@ -102,13 +104,3 @@ Autor
 
 Proiect realizat pentru gestionarea unui magazin beauty folosind arhitectură modulară în Flask.
 
-Am combinat cele două versiuni într-un README complet și organizat, păstrând:
-
-descrierea proiectului
-funcționalitățile CRUD
-filtrarea și sortarea
-raportul magazinului
-structura proiectului
-pașii de instalare și rulare
-tehnologiile utilizate
-informațiile despre baza de date și CSV
