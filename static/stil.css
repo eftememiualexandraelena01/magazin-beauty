@@ -1,0 +1,121 @@
+/* =========================
+   STIL GENERAL PAGINĂ
+========================= */
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    color: #212529;
+}
+
+
+/* =========================
+   TITLURI
+========================= */
+
+h1 {
+    color: #d63384;
+    font-weight: bold;
+}
+
+h3 {
+    color: #343a40;
+    font-weight: 600;
+}
+
+
+/* =========================
+   TABEL PRODUSE
+========================= */
+
+table {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+
+/* =========================
+   CARDURI
+========================= */
+
+.card {
+    border-radius: 10px;
+    border: none;
+}
+
+
+/* =========================
+   BUTOANE
+========================= */
+
+.btn {
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+}
+
+
+/* =========================
+   INPUTURI / FORMULARE
+========================= */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 5px rgba(214, 51, 132, 0.4);
+    border-color: #d63384;
+}
+
+
+/* =========================
+   BADGE STOC
+========================= */
+
+.badge {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+}
+
+
+/* =========================
+   LISTE RAPORT
+========================= */
+
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+}

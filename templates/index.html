@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Magazin Beauty</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Fișier CSS personalizat -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='stil.css') }}">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <!-- Titlu principal -->
+    <h1 class="mb-4 text-center">
+        Magazin Beauty
+    </h1>
+
+    <!-- Butoane principale -->
+    <div class="mb-4 d-flex gap-2">
+
+        <a href="/adauga" class="btn btn-primary">
+            Adaugă produs
+        </a>
+
+        <a href="/raport" class="btn btn-success">
+            Raport
+        </a>
+
+    </div>
+
+    <!-- Formular filtrare și căutare -->
+    <form method="GET" class="row g-3 mb-4">
+
+        <!-- Căutare produs -->
+        <div class="col-md-4">
+
+            <input
+                type="text"
+                name="q"
+                class="form-control"
+                placeholder="Caută produs">
+
+        </div>
+
+        <!-- Filtrare categorie -->
+        <div class="col-md-4">
+
+            <input
+                type="text"
+                name="categorie"
+                class="form-control"
+                placeholder="Categorie">
+
+        </div>
+
+        <!-- Selectare filtru -->
+        <div class="col-md-3">
+
+            <select name="filtru" class="form-select">
+
+                <option value="">
+                    Selectează filtru
+                </option>
+
+                <option value="nume">
+                    Sortare după nume
+                </option>
+
+                <option value="pret">
+                    Sortare după preț
+                </option>
+
+                <option value="stoc">
+                    Produse în stoc
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- Buton aplicare -->
+        <div class="col-md-1">
+
+            <button
+                type="submit"
+                class="btn btn-dark w-100">
+
+                Aplică
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- Tabel produse -->
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-striped table-hover shadow-sm">
+
+            <!-- Header tabel -->
+            <thead class="table-dark">
+
+                <tr>
+                    <th>ID</th>
+                    <th>Nume</th>
+                    <th>Brand</th>
+                    <th>Categorie</th>
+                    <th>Preț</th>
+                    <th>Stoc</th>
+                    <th>Acțiuni</th>
+                </tr>
+
+            </thead>
+
+            <!-- Conținut tabel -->
+            <tbody>
+
+            {% if produse %}
+
+                {% for produs in produse %}
+
+                <tr>
+
+                    <td>
+                        {{ produs.id_produs }}
+                    </td>
+
+                    <td>
+                        {{ produs.nume }}
+                    </td>
+
+                    <td>
+                        {{ produs.brand }}
+                    </td>
+
+                    <td>
+                        {{ produs.categorie }}
+                    </td>
+
+                    <td>
+                        {{ produs.pret }} lei
+                    </td>
+
+                    <td>
+
+                        {% if produs.stoc > 0 %}
+
+                            <span class="badge bg-success">
+                                {{ produs.stoc }}
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-danger">
+                                Fără stoc
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+                    <!-- Butoane acțiuni -->
+                    <td class="d-flex gap-2">
+
+                        <a
+                            href="/editeaza/{{ produs.id_produs }}"
+                            class="btn btn-warning btn-sm">
+
+                            Editare
+
+                        </a>
+
+                        <a
+                            href="/sterge/{{ produs.id_produs }}"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('Sigur dorești ștergerea?')">
+
+                            Ștergere
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            {% else %}
+
+                <!-- Mesaj dacă nu există produse -->
+                <tr>
+
+                    <td colspan="7" class="text-center text-muted">
+
+                        Nu există produse disponibile
+
+                    </td>
+
+                </tr>
+
+            {% endif %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

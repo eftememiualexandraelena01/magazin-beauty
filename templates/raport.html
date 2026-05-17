@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Raport magazin</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <!-- Titlu pagină -->
+    <h1 class="mb-4 text-center">
+        Raport magazin beauty
+    </h1>
+
+    <!-- Statistici generale -->
+    <div class="card p-4 shadow-sm">
+        <h3>
+            Statistici generale
+        </h3>
+
+        <hr>
+
+        <p>
+            <strong>Total produse:</strong>
+            {{ raport['total_produse'] }}
+        </p>
+
+        <p>
+            <strong>Valoare totală stoc:</strong>
+            {{ raport['valoare_totala'] }} lei
+        </p>
+
+        <p>
+            <strong>Preț mediu produse:</strong>
+            {{ raport['pret_mediu'] }} lei
+        </p>
+
+        {% if raport['produs_scump'] %}
+        <p>
+            <strong>Cel mai scump produs:</strong>
+
+            {{ raport['produs_scump'].nume }}
+            -
+            {{ raport['produs_scump'].pret }} lei
+        </p>
+        {% endif %}
+    </div>
+
+    <!-- Produse fără stoc -->
+    <div class="card p-4 shadow-sm mt-4">
+
+        <h3>
+            Produse fără stoc
+        </h3>
+
+        <hr>
+
+        {% if raport['produse_fara_stoc'] %}
+
+        <ul class="list-group">
+
+            {% for produs in raport['produse_fara_stoc'] %}
+
+            <li class="list-group-item">
+                {{ produs.nume }}
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+        {% else %}
+
+        <p class="text-success">
+            Toate produsele sunt în stoc.
+        </p>
+
+        {% endif %}
+    </div>
+
+    <!-- Produse pe categorii -->
+    <div class="card p-4 shadow-sm mt-4">
+
+        <h3>
+            Produse pe categorii
+        </h3>
+
+        <hr>
+
+        <ul class="list-group">
+
+            {% for categorie, total in raport['categorii'].items() %}
+
+            <li class="list-group-item d-flex justify-content-between">
+                <span>{{ categorie }}</span>
+                <span>{{ total }} produse</span>
+            </li>
+
+            {% endfor %}
+
+        </ul>
+    </div>
+
+    <!-- Buton înapoi -->
+    <div class="mt-4">
+        <a href="/" class="btn btn-secondary">
+            Înapoi
+        </a>
+    </div>
+
+</div>
+
+</body>
+
+</html>
