@@ -1,4 +1,5 @@
 Magazin Beauty
+
 Descriere proiect
 
 Aplicație web pentru gestionarea produselor unui magazin beauty, realizată în Python folosind Flask și SQLite.
@@ -12,9 +13,9 @@ editare produse
 căutare produse
 filtrare și sortare
 generare raport magazin
-export produse în format CSV
 
-Tehnologii utilizate
+
+Tehnologii utilizate:
 Python 3
 Flask
 SQLite3
@@ -22,6 +23,7 @@ HTML5
 CSS3
 Bootstrap
 Jinja2
+
 Structura proiectului
 MAGAZIN_BEAUTY/
 │
@@ -49,7 +51,6 @@ MAGAZIN_BEAUTY/
 ├── aplicatie.py
 ├── lista_produse.csv
 ├── magazin_beauty.db
-├── requirements.txt
 └── README.md
 
 Funcționalități
@@ -74,6 +75,7 @@ preț mediu produse
 produse pe categorii
 
 Instalare și rulare
+
 1. Clonarea proiectului
 git clone <link-repository>
 cd MAGAZIN_BEAUTY
@@ -99,7 +101,7 @@ Baza de date
 
 Aplicația utilizează SQLite prin fișierul:
 
-magazin_beauty.db
+
 Exemple de pagini
 Pagina principală — listă produse
 Formular adăugare produs
