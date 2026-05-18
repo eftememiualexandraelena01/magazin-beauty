@@ -51,6 +51,7 @@ MAGAZIN_BEAUTY/
 ├── magazin_beauty.db
 ├── requirements.txt
 └── README.md
+
 Funcționalități
 CRUD
 Create
@@ -63,6 +64,7 @@ sortare după preț
 produse în stoc
 filtrare după categorie
 căutare după nume / brand / categorie
+
 Raport magazin
 număr total produse
 valoare totală stoc
@@ -70,20 +72,23 @@ produs cel mai scump
 produse fără stoc
 preț mediu produse
 produse pe categorii
+
 Instalare și rulare
 1. Clonarea proiectului
 git clone <link-repository>
 cd MAGAZIN_BEAUTY
 2. Crearea mediului virtual
-python -m venv venv
+python 
 3. Activarea mediului virtual
 Windows
 venv\Scripts\activate
 Linux / macOS
 source venv/bin/activate
-4. Instalarea dependențelor
-pip install -r requirements.txt
-5. Pornirea aplicației
+
+5. Instalarea dependențelor
+pip install
+
+7. Pornirea aplicației
 python aplicatie.py
 
 Aplicația va fi disponibilă la adresa:
